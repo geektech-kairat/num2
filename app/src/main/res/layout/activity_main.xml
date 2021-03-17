@@ -6,16 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleForRv"
-        tools:listitem="@layout/list_item" />
 
     <TextView
+
         android:id="@+id/titleForRv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,4 +20,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downTitle"
+        tools:listitem="@layout/list_item" />
+
+
+    <LinearLayout
+        android:background="@drawable/text_lines"
+        android:id="@+id/downTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleForRv">
+
+        <TextView
+            android:paddingStart="10dp"
+            android:id="@+id/bank"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Банк"
+            android:textColor="#610C0C" />
+
+        <TextView
+            android:id="@+id/bye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="покупка"
+            android:textColor="#610C0C" />
+
+        <TextView
+            android:id="@+id/sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="продажа"
+            android:textColor="#610C0C" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

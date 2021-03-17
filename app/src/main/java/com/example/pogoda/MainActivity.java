@@ -33,12 +33,19 @@ public class MainActivity extends AppCompatActivity {
 
     private List<ListItemModel> list = new ArrayList<>();
 
+    private TextView bank;
+    private TextView bye;
+    private TextView sale;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e("TAG", "onCreate: " + titleForRvTxt );
+        Log.e("TAG", "onCreate: " + titleForRvTxt);
         init();
+        click();
 
 //
     }
@@ -51,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
             titleForRvTxt = updateDataInfo.get(0).text();
 //
 //           titleForRv.setText(titleForRvTxt);
-            Log.e("TAG", "onCreate: " + titleForRvTxt );
-//            titleForRv.setText(titleForRvTxt);
 
 
 //
@@ -69,21 +74,33 @@ public class MainActivity extends AppCompatActivity {
             }
 
             runOnUiThread(() -> runOnUiThread(() ->
+
                     adapterLIst.notifyDataSetChanged()));
 
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    titleForRv.setText(titleForRvTxt);
+                    Log.e("TAG", "onCreate: " + titleForRvTxt);
 
+                }
+            });
         } catch (IOException e) {
             e.printStackTrace();
+
 
         }
     }
 
     private void init() {
 
+        bank = findViewById(R.id.bank);
+        bye = findViewById(R.id.bye);
+        sale = findViewById(R.id.sale);
+
         titleForRv = findViewById(R.id.titleForRv);
         rv = findViewById(R.id.rv);
         adapterLIst = new AdapterLIst(list);
-
 
 
         rv.setAdapter(adapterLIst);
@@ -93,5 +110,22 @@ public class MainActivity extends AppCompatActivity {
         secThread = new Thread(runnable);
         secThread.start();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+    public void click(){
+        bank.setOnClickListener(v -> {
+            adapterLIst.sortListBank();
+        });
+
+        bye.setOnClickListener(v -> {
+            Log.e("TAG", "click: " );
+
+            adapterLIst.sortListBye();
+        });
     }
 }

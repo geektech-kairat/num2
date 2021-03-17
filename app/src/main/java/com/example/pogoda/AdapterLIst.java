@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AdapterLIst extends RecyclerView.Adapter<AdapterLIst.ViewHolderList> {
@@ -37,13 +40,21 @@ public class AdapterLIst extends RecyclerView.Adapter<AdapterLIst.ViewHolderList
     public int getItemCount() {
         return list.size();
     }
-    public void addList(ListItemModel listItemModel){
+
+    public void addList(ListItemModel listItemModel) {
         list.add(listItemModel);
         notifyDataSetChanged();
     }
-    public void addList2(List<ListItemModel> list2){
+
+    public void addList2(List<ListItemModel> list2) {
         list2.addAll(list2);
         notifyDataSetChanged();
+    }
+    public void sortListBank(){
+        Collections.sort(list, (o1, o2) -> o1.getNameBank().compareTo(o2.getNameBank()));
+        notifyDataSetChanged();
+    }
+    public void sortListBye(){
     }
 
 
@@ -54,17 +65,24 @@ public class AdapterLIst extends RecyclerView.Adapter<AdapterLIst.ViewHolderList
         private TextView sale;
 
 
+
         public ViewHolderList(@NonNull View itemView) {
             super(itemView);
             nameBank = itemView.findViewById(R.id.nameBank);
             bye = itemView.findViewById(R.id.bye);
             sale = itemView.findViewById(R.id.sale);
+
+
+
+
         }
 
         public void onBind(ListItemModel listItemModel) {
             nameBank.setText(listItemModel.nameBank);
             bye.setText(listItemModel.bye);
             sale.setText(listItemModel.sale);
+
+
         }
     }
 }
