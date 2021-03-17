@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/nameBank"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="10dp"
+        android:text="nameBank"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:id="@+id/bye"
+        android:background="#75A69F9F"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="bye"
+        android:textSize="16sp" />
+
+    <TextView
+        android:background="#75A69F9F"
+        android:layout_marginStart="10dp"
+        android:id="@+id/sale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="sale"
+        android:textSize="16sp" />
+</LinearLayout>
